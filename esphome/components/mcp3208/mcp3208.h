@@ -1,7 +1,7 @@
 #pragma once
 
 #include "esphome/core/component.h"
-#include "esphome/core/hal.h"
+#include "esphome/core/esphal.h"
 #include "esphome/components/sensor/sensor.h"
 #include "esphome/components/spi/spi.h"
 #include "esphome/components/voltage_sampler/voltage_sampler.h"
@@ -11,7 +11,7 @@ namespace mcp3208 {
 
 class MCP3208 : public Component,
                 public spi::SPIDevice<spi::BIT_ORDER_MSB_FIRST, spi::CLOCK_POLARITY_LOW, spi::CLOCK_PHASE_LEADING,
-                                      spi::DATA_RATE_75KHZ> {  // Running at the slowest max speed supported by the
+                                      spi::DATA_RATE_1MHZ> {  // Running at the slowest max speed supported by the
                                                                // mcp3208. 2.7v = 75ksps
  public:
   MCP3208() = default;
