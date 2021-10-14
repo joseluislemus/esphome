@@ -32,7 +32,7 @@ float MCP3208::read_data(uint8_t pin) {
   this->enable();
   this->transfer_byte(command1);
   
-  data_msb = this->transfer_byte(command2) & 0x03;
+  data_msb = this->transfer_byte(command2) & 0x0F;
   data_lsb = this->transfer_byte(0x00);
 
   this->disable();
