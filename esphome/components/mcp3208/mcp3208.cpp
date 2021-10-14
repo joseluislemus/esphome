@@ -24,7 +24,7 @@ float MCP3208::read_data(uint8_t pin) {
 //  uint8_t command = ((0x01 << 7) |          // start bit
 //                     ((pin & 0x07) << 4));  // channel number
 
-  uint8_t command1 = ( 0x04 |          // start bit
+  uint8_t command1 = ( (0x06) |          // start bit
                      ((pin & 0x04) >> 2));  // channel number
 
   uint8_t command2 = (pin & 0x03) << 6;
