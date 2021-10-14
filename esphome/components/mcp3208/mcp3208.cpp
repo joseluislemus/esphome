@@ -24,15 +24,15 @@ float MCP3208::read_data(uint8_t pin) {
 //  uint8_t command = ((0x01 << 7) |          // start bit
 //                     ((pin & 0x07) << 4));  // channel number
 
-  uint8_t command1 = ((0x15 << 2) |          // start bit
+  uint8_t command1 = ( (0x04) |          // start bit
                      ((pin & 0x04) >> 2));  // channel number
 
   uint8_t command2 = (pin & 0x03) << 6;
 
   this->enable();
-  
   this->transfer_byte(command1);
-  data_msb = this->transfer_byte(command2);
+  
+  data_msb = this->transfer_byte(command2) & 0x03;
   data_lsb = this->transfer_byte(0x00);
 
   this->disable();
