@@ -10,9 +10,8 @@ namespace esphome {
 namespace mcp3208 {
 
 class MCP3208 : public Component,
-                public spi::SPIDevice<spi::BIT_ORDER_MSB_FIRST, spi::CLOCK_POLARITY_LOW, spi::CLOCK_PHASE_LEADING,
-                                      spi::DATA_RATE_1MHZ> {  // Running at the slowest max speed supported by the
-                                                               // mcp3208. 2.7v = 75ksps
+                public spi::SPIDevice<spi::BIT_ORDER_MSB_FIRST, spi::CLOCK_POLARITY_HIGH, spi::CLOCK_PHASE_LEADING,
+                                      spi::DATA_RATE_1MHZ> {
  public:
   MCP3208() = default;
 
